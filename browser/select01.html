@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <style>
+            .bg-red {
+                background-color: red;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <p>글자</p>
+        </div>
+
+        <div class="container">
+            <div class="box a" id="box-a-id">A</div>
+            <div class="box b">B</div>
+            <div class="box c">C</div>
+        </div>
+
+        <!-- <div id="box-a-id"></div> -->
+
+        <p id="target">text<span style="display: none;">hidden</span></p>
+
+        <script>
+            const boxA = document.getElementById("box-a-id"); // ID code find
+            console.log(boxA);
+
+            const boxes = document.getElementsByClassName("box"); // class find
+            console.log(boxes);
+            console.log(boxes[1]);
+            console.log(boxes[1]);
+
+            const boxAcss = document.querySelector("#box-a-id"); // css 선택자 스타일 -> 단일선택
+            const boxesCss = document.querySelectorAll(".box"); // css 선택자 스타일(all)
+
+            console.log(boxAcss);
+            console.log(boxesCss);
+
+            console.log( document.getElementsByClassName("c") ); // 대상이 1개여도 여러개를 담는 배열에 1개 들어있다.
+            console.log( document.getElementsByClassName("c")[0] );
+
+            console.log( document.querySelector(".c") );
+            console.log( document.querySelectorAll(".c") );
+            console.log( document.querySelectorAll(".c")[0] ); 
+            // 동일한 이름이 여러개일 경우 정확히 찾기 위해서 인덱스 사용
+
+            const p_target = document.getElementById("target");
+            console.log(p_target.textContent); // 모든 텍스트
+            console.log(p_target.innerText); // 텍스트
+            console.log(p_target.innerHTML); // html 포함 모든 텍스트 
+
+            // p_target.textContent = "textContent로 접근해서 수정함";
+            // p_target.innerText = "innerText로 접근해서 수정함";
+            // p_target.innerHTML = "innerHtml로 <strong>접근해서</strong> 수정함";
+
+            p_target.innerText = "innerText로 <strong>접근해서</strong> 수정함"; 
+            // text는 효과적용 불가
+        </script>
+    </body>
+</html>
