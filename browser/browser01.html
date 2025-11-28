@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>browser_접근</title>
+    <style>
+        body { 
+            width: 5000px;
+            height: 5000px;
+        }
+
+        button {
+            position: fixed;
+            left: 100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>browser01.html</h1>
+    <button onclick="scrollInfo()">스크롤 위치 정보</button>
+
+    <script>
+        //js 영역(현재 페이지 정보)
+        console.log(window.innerWidth); // 넓이
+        console.log(window.innerHeight); // 높이
+        console.log(window.outerWidth); // 넓이(개발자 도구 미포함)
+        console.log(window.outerHeight); // 높이(개발자 도구 미포함)
+        console.log(window.screenTop);
+        console.log(window.screenY);
+        console.log(window.screenLeft);
+        console.log(window.screenX);
+        
+
+        function scrollInfo(){
+            console.log(window.scrollX);
+            console.log(window.scrollY);
+        }
+
+    </script>
+</body>
+</html>
