@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>달식당 <span id="ht" href="">좋아요♡</span><span id="ht_up"> 0</span></h1>
+
+    <script>
+        let count = 0;
+
+        const id_ht = document.getElementById("ht");
+        const id_htUp = document.getElementById("ht_up");
+
+        id_ht.onclick = ()=> {
+            count++;
+            id_htUp.textContent = count;
+        }
+        
+    </script>
+</body>
+</html>

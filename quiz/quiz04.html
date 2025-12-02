@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+        }
+
+        .back-red {
+            background-color: red;
+        }
+
+        .back-blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">@box@</div>
+    <button onclick="changeColor()">배경색 바꾸기</button>
+
+    <script>
+        /* 코딩부분 */
+        const bit_box = document.getElementsByClassName("box")[0];
+
+        function changeColor() {
+            let inputInfo = prompt("1 또는 2를 입력하세요. 1:빨간색, 2:파란색");
+
+            bit_box.classList.remove("back-red", "back-blue");
+
+            if(inputInfo == 1) {
+                bit_box.classList.add("back-red");
+            }else if (inputInfo == 2) {
+                bit_box.classList.add("back-blue"); 
+            }else {
+                alert("잘못 입력했습니다...");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
