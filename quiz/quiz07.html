@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="fom" action="">
+        <input type="text" id="loginId" placeholder="아이디"><br>
+        <input type="password" id="loginPw" placeholder="비밀번호"><br>
+        <button id="btnLogin" onclick="tryLogin()">로그인 시도</button><br>
+
+    </form>
+
+    <script>
+        //코드작성
+        const id = document.getElementById("loginId");
+        const pw = document.getElementById("loginPw");
+        const fom = document.getElementById("fom");
+
+        id.addEventListener("keydown", (event) => {
+            console.log(event.key);
+            console.log(event.target.value);
+
+            if (event.key == "Enter") {
+                event.preventDefault();
+                pw.focus();
+            }
+        });
+
+        pw.addEventListener("keydown", (event) => {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                // 폼의 submit 이벤트를 강제로 발생시켜 유효성 검사를 실행합니다.
+                fom.dispatchEvent(new Event('submit'));
+            }
+        });
+
+
+
+
+        fom.addEventListener("submit", (event) => {
+            console.log("submit");
+            event.preventDefault();
+
+            if (id.value.trim() == "") {
+                alert("아이디를 입력해주세요.");
+                id.value = id.value.trim(); // 공백 제거 (선택적)
+                id.focus();
+                return; // 아이디가 없으니 함수 종료
+            }
+            // 아이디가 채워졌다면, 다음 검사: 비밀번호가 비어 있는지 확인
+            else if (pw.value.trim() == "") {
+                alert("비밀번호를 입력해주세요.");
+                pw.value = pw.value.trim(); // 공백 제거 (선택적)
+                pw.focus();
+                return; // 비밀번호가 없으니 함수 종료
+            }
+            // 아이디와 비밀번호 모두 채워졌다면, 최종 로직 실행
+            else {
+                // ⭐️ 여기에 실제 로그인 처리 코드가 들어갑니다.
+                alert("로그인 시도!");
+                // (예: 서버로 데이터를 전송하는 fetch/axios 코드)
+
+            }
+
+
+        });
+
+
+
+        // function tryLogin() {
+        //     id.value = "";
+        //     pw.value = "";
+        // };
+
+    </script>
+
+</body>
+
+</html>
